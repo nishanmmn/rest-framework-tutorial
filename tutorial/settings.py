@@ -1,7 +1,7 @@
 # Django settings for tutorial project.
 import os
 
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.realpath(__file__))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -59,16 +59,17 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+STATIC_ROOT = normpath(join(BASE_DIR, 'assets'))
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
 STATIC_URL = '/static/'
 
 # Additional locations of static files
-STATICFILES_DIRS = [
-    os.path.join(PROJECT_ROOT, 'static'),
-]
+STATICFILES_DIRS = (
+    normpath(join(BASE_DIR, 'static')),
+    normpath(join(BASE_DIR, 'upload')),
+)
 
 # List of finder classes that know how to find static files in
 # various locations.
