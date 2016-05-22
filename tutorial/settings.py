@@ -1,7 +1,7 @@
 # Django settings for tutorial project.
 import os
 
-BASE_DIR = os.path.dirname(os.path.realpath(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -66,9 +66,8 @@ STATIC_ROOT = normpath(join(BASE_DIR, 'assets'))
 STATIC_URL = '/static/'
 
 # Additional locations of static files
-STATICFILES_DIRS = (
-    normpath(join(BASE_DIR, 'static')),
-    normpath(join(BASE_DIR, 'upload')),
+STATICFILES_DIR = (
+    os.path.join(BASE_DIR, "static"),
 )
 
 # List of finder classes that know how to find static files in
